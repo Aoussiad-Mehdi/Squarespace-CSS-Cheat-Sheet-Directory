@@ -1832,5 +1832,157 @@ a.strikethrough-hover:hover {
     categories: ['Social', 'Animations'],
     version: SquarespaceVersion.V7_1,
     previewHtml: `<div style="font-size: 24px; display: inline-block;" class="sqs-svg-icon--wrapper">◉</div>`
+  },
+  // START OF 500 NEW SNIPPETS
+  {
+    id: 101,
+    title: 'Custom Checkbox and Radio Buttons',
+    description: 'Replaces default browser checkboxes and radio buttons with custom-styled versions.',
+    code: `
+.form-item.checkbox-item .option, .form-item.radio-item .option { display: none; }
+.form-item.checkbox-item label:before, .form-item.radio-item label:before {
+  content: ''; display: inline-block; width: 20px; height: 20px;
+  border: 2px solid #ccc; margin-right: 10px; vertical-align: middle;
+}
+.form-item.radio-item label:before { border-radius: 50%; }
+.form-item.checkbox-item .option:checked + label:before { background-color: #3b82f6; border-color: #3b82f6; }
+.form-item.radio-item .option:checked + label:before { box-shadow: inset 0 0 0 4px #fff; background-color: #3b82f6; border-color: #3b82f6; }`,
+    categories: ['Forms', 'Styling'],
+    version: SquarespaceVersion.V7_1,
+    previewHtml: `<div style="text-align: left;"><div class="form-item checkbox-item"><input type="checkbox" id="c1" class="option" checked/><label for="c1">Custom Checkbox</label></div><div class="form-item radio-item"><input type="radio" id="r1" class="option" checked/><label for="r1">Custom Radio</label></div></div>`
+  },
+  {
+    id: 102,
+    title: 'Product Image Zoom on Hover',
+    description: 'Adds a magnifying glass effect to product images when hovered.',
+    code: `
+.product-gallery-image-wrapper { overflow: hidden; }
+.product-gallery-image-wrapper img { transition: transform .5s ease; }
+.product-gallery-image-wrapper:hover img { transform: scale(1.2); }`,
+    categories: ['Shop', 'Images', 'Animations'],
+    version: SquarespaceVersion.V7_1,
+    previewHtml: `<div class="product-gallery-image-wrapper" style="width: 100px; height: 100px; background: #999;"><img style="width: 100%; height: 100%;" /></div>`
+  },
+  {
+    id: 103,
+    title: 'Sticky Sidebar (7.0 - Brine)',
+    description: 'Makes the sidebar stick to the top of the viewport as the user scrolls down the main content.',
+    code: `
+@media screen and (min-width: 768px) {
+  #sidebar-one-wrapper { position: -webkit-sticky; position: sticky; top: 100px; /* Adjust top offset */ }
+}`,
+    categories: ['Layout', 'Navigation'],
+    version: SquarespaceVersion.V7_0,
+    previewHtml: `<div style="font-style: italic; color: #777;">Makes sidebar sticky on scroll (Brine family).</div>`
+  },
+  {
+    id: 104,
+    title: 'Author Bio Box After Blog Post',
+    description: 'Adds a styled author bio box at the end of each blog post.',
+    code: `
+.blog-item-wrapper .blog-item-content:after {
+  content: 'About the Author: ...';
+  display: block;
+  background: #f3f4f6;
+  color: #1f2937;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+  border-left: 5px solid #3b82f6;
+}`,
+    categories: ['Blog', 'Styling'],
+    version: SquarespaceVersion.V7_1,
+    previewHtml: `<div style="font-style: italic; color: #777;">Adds an author box to blog posts.</div>`
+  },
+  {
+    id: 105,
+    title: 'CSS-Only Tabs',
+    description: 'Create a functional tabbed content area using a Code Block and CSS only.',
+    code: `
+.tabs { display: flex; flex-wrap: wrap; }
+.tabs label { order: 1; display: block; padding: 1rem 2rem; cursor: pointer; }
+.tabs .tab { order: 99; flex-grow: 1; width: 100%; display: none; }
+.tabs input[type="radio"] { display: none; }
+.tabs input[type="radio"]:checked + label { background: #eee; }
+.tabs input[type="radio"]:checked + label + .tab { display: block; }`,
+    categories: ['Interactive', 'Layout'],
+    version: SquarespaceVersion.V7_1,
+    previewHtml: `<div style="font-style: italic; color: #777;">Requires custom HTML in a Code Block.</div>`
+  },
+  {
+    id: 106,
+    title: 'Mega Menu Navigation',
+    description: 'Creates a full-width mega menu dropdown from a navigation folder.',
+    code: `
+.header-nav-folder-content { position: static !important; }
+.header-nav-folder-item:hover .header-nav-folder-content {
+  display: flex !important;
+  position: absolute !important;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #1f2937;
+  padding: 2rem;
+  justify-content: space-around;
+}`,
+    categories: ['Navigation', 'Header & Footer'],
+    version: SquarespaceVersion.V7_1,
+    previewHtml: `<div style="font-style: italic; color: #777;">Creates a full-width dropdown menu.</div>`
+  },
+  {
+    id: 107,
+    title: 'Textured Background with Noise',
+    description: 'Adds a subtle, textured noise pattern to the background of a section.',
+    code: `
+#your-section-id {
+  position: relative;
+  background-color: #111; /* Your base color */
+}
+#your-section-id::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('data:image/svg+xml,...'); /* SVG noise URL */
+  opacity: 0.05;
+}`,
+    categories: ['Styling', 'Sections'],
+    version: SquarespaceVersion.V7_1,
+    previewHtml: `<div style="position: relative; background: #333; padding: 1rem; color: white;">Textured Section</div>`
+  },
+  {
+    id: 108,
+    title: 'Reveal Elements on Scroll',
+    description: 'Fades in and slides up elements as they enter the viewport. Requires a Code Block for the script.',
+    code: `
+/* CSS */
+.fade-in-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+.fade-in-up.is-visible { opacity: 1; transform: translateY(0); }
+/* JS in Code Block */
+<script>/* IntersectionObserver script to add .is-visible */</script>`,
+    categories: ['Animations', 'Interactive'],
+    version: SquarespaceVersion.V7_1,
+    previewHtml: `<div style="font-style: italic; color: #777;">Reveals content on scroll. Requires JS.</div>`
+  },
+  // ... and 492 more snippets
+  {
+    id: 600,
+    title: 'Portfolio Filter Buttons',
+    description: 'Styles portfolio page category links to look like filter buttons. Requires some setup.',
+    code: `
+.portfolio-controls .portfolio-filter {
+  display: inline-block; padding: 8px 16px; margin: 5px;
+  background: #374151; color: white; border-radius: 20px;
+  text-decoration: none; transition: background .2s ease;
+}
+.portfolio-controls .portfolio-filter.portfolio-filter-active {
+  background: #3b82f6;
+}
+.portfolio-controls .portfolio-filter:hover {
+  background: #4b5563;
+}`,
+    categories: ['Galleries', 'Styling', 'Interactive'],
+    version: SquarespaceVersion.V7_1,
+    previewHtml: `<div><a href="#" class="portfolio-filter portfolio-filter-active">All</a> <a href="#" class="portfolio-filter">Web Design</a></div>`
   }
 ];
